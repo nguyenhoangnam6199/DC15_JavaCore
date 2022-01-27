@@ -2,7 +2,7 @@ package Exercise_3;
 
 import java.util.Comparator;
 
-public class Student extends Human{
+public class Student extends Human implements Comparator<Student>{
     private Integer grade;
     public Integer getGrade() {
         return grade;
@@ -27,4 +27,9 @@ public class Student extends Human{
         return "Student [" + this.getFirstName() + "--" + this.getLastName() + " grade=" + grade + "]";
     }
 
+
+    @Override
+    public int compare(Student o1, Student o2) {
+        return o1.getGrade()-o2.getGrade();
+    }
 }

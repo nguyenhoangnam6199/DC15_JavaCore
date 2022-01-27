@@ -8,8 +8,10 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class DisplayTest {
+    private Display display;
     @Before
     public void setUp() throws Exception {
+        display = new Display();
     }
 
     @After
@@ -19,34 +21,26 @@ public class DisplayTest {
     @Test
     public void getSize() {
         int expResult = 1;
-        Display display = new Display();
         int actResult = display.getSize();
         assertEquals(expResult,actResult);
     }
 
     @Test
     public void setSize() {
-        int size = 1;
-        Display display = new Display();
-        display.setSize(size);
-        int expResult = 1;
-        assertEquals(expResult, display.getSize());
+        display.setSize(1);
+        assertEquals(1, display.getSize());
     }
 
     @Test
     public void getNumberofColors() {
         int expResult = 1;
-        Display display = new Display();
         int actResult = display.getNumberofColors();
         assertEquals(expResult,actResult);
     }
 
     @Test
     public void setNumberofColors() {
-        int numberOfColor = 2;
-        Display display =  new Display();
-        display.setNumberofColors(numberOfColor);
-        int expResult = 1;
-        assertEquals(expResult,display.getNumberofColors());
+        display.setNumberofColors(2);
+        assertEquals(1,display.getNumberofColors());
     }
 }

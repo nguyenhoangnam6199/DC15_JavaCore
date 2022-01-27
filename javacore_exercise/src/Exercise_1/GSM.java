@@ -167,4 +167,14 @@ public class GSM {
         return result;
     }
 
+    public Call findLongestCall(ArrayList<Call> callArrayList){
+        Call result = callArrayList.get(0);
+        for(int i=1; i<callArrayList.size(); i++){
+            if(callArrayList.get(i).getDuration()>result.getDuration()){
+                result = callArrayList.get(i);
+            }
+        }
+        return result;
+    }
+
 }

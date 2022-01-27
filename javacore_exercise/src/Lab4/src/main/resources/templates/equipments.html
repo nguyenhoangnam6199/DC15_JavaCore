@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Core Online Tutorial - List Equipment</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+
+    <link href="../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(equipments)}">
+        <h2>Equipment List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Employee ID</th>
+                <th>Action</th>
+            </tr>
+            <tr th:each="equipment : ${equipments}">
+                <td th:text="${equipment.id}"></td>
+                <td th:text="${equipment.name}"></td>
+                <td th:text="${equipment.status}"></td>
+                <td th:text="${equipment.description}"></td>
+                <td th:text="${equipment.type}"></td>
+                <td th:text="${equipment.employeeId}"></td>
+                <td>
+                    <a style="text-decoration: none" th:href="${'/equipment/'+equipment.id}">View</a>
+                    <a style="text-decoration: none" th:href="${'/equipment/edit/'+equipment.id}">Edit</a>
+                    <a style="text-decoration: none" th:href="${'/equipment/delete/'+equipment.id}">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <a href="/equipment/create">New Equipment</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

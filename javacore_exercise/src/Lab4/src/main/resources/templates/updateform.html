@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Core Online Tutorial - List Equipment</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+
+    <link href="../static/css/spring-core.css"
+          th:href="@{css/spring-core.css}" rel="stylesheet" media="screen"/>
+
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <h2>New Equipment</h2>
+    <div>
+
+        <form class="form-horizontal" th:object="${equipment}" th:action="@{/equipment/edit}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Equipment Name:</label>
+                <div class="col-sm-10">
+                    <label>
+                        <input type="text" class="form-control" th:field="*{name}"/>
+                    </label>
+                </div>
+<!--                <p th:if="${#fields.hasErrors('name')}" th:errorclass="error" th:errors="*{name}" />-->
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Status:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{status}"/>
+                </div>
+<!--                <p th:if="${#fields.hasErrors('status')}" th:errorclass="error" th:errors="*{status}" />-->
+
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Description:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{description}"/>
+                </div>
+<!--                <p th:if="${#fields.hasErrors('description')}" th:errorclass="error" th:errors="*{description}" />-->
+
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Type:</label>
+                <div class="col-sm-10">
+                    <input type="radio" th:field="*{type}" th:value="PC" />
+                    <label th:text="PC" />
+                    <input type="radio" th:field="*{type}" th:value="Laptop" />
+                    <label th:text="Laptop" />
+                </div>
+<!--                <p th:if="${#fields.hasErrors('type')}" th:errorclass="error" th:errors="*{type}" />-->
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Employee:</label>
+                <select class="col-sm-10" th:field="*{employeeId}">
+                    <option th:each="x : ${employees}"
+                            th:value="${x.id}"
+                            th:utext="${x.name}"/>
+                </select>
+            </div>
+            <br/>
+            <br/>
+            <div class="form-group">
+                <button  type="submit" class=" col-sm-2 control-label btn btn-success">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

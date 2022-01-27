@@ -9,8 +9,10 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class FrogTest {
+    private Frog frog;
     @Before
     public void setUp() throws Exception {
+        frog = new Frog();
     }
 
     @After
@@ -19,14 +21,12 @@ public class FrogTest {
     @Test
     public void getName() {
         String expResult = "abc";
-        Frog frog = new Frog();
         assertEquals(expResult, frog.getName());
     }
 
     @Test
     public void setName() {
         String name = "abs";
-        Frog frog = new Frog();
         frog.setName(name);
         String expResult = "abs";
         assertEquals(expResult,frog.getName());
@@ -35,14 +35,12 @@ public class FrogTest {
     @Test
     public void getAge() {
         int expResult  = 1;
-        Frog frog = new Frog();
         assertEquals(expResult,frog.getAge());
     }
 
     @Test
     public void setAge() {
         int age = 1;
-        Frog frog = new Frog();
         frog.setAge(age);
         int expResult = 1;
         assertEquals(expResult,frog.getAge());

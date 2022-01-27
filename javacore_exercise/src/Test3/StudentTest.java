@@ -8,9 +8,10 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class StudentTest {
-
+    private Student student;
     @Before
     public void setUp() throws Exception {
+        student = new Student();
     }
 
     @After
@@ -20,48 +21,36 @@ public class StudentTest {
     @Test
     public void getFirstName() {
         String expResuilt = "abs";
-        Student student = new Student();
         assertEquals(expResuilt, student.getFirstName());
     }
 
     @Test
     public void setFirstName() {
-        String name = "abc";
-        Student student = new Student();
-        student.setFirstName(name);
-        String expResult = "abc";
-        assertEquals(expResult, student.getFirstName());
+        student.setFirstName("abc");
+        assertEquals("abc", student.getFirstName());
     }
 
     @Test
     public void getLastName() {
-        String expResuilt = "abs";
-        Student student = new Student();
-        assertEquals(expResuilt, student.getLastName());
+        String expResult = "abs";
+        assertEquals(expResult, student.getLastName());
     }
 
     @Test
     public void setLastName() {
-        String name = "abc";
-        Student student = new Student();
-        student.setLastName(name);
-        String expResult = "abc";
-        assertEquals(expResult, student.getLastName());
+        student.setLastName("Abc");
+        assertEquals("Abc", student.getLastName());
     }
 
     @Test
     public void getGrade() {
         int expResult = 1;
-        Student student = new Student();
         assertEquals(java.util.Optional.of(expResult),student.getGrade());
     }
 
     @Test
     public void setGrade() {
-        int grade = 1;
-        Student student = new Student();
-        student.setGrade(grade);
-        int expResult = 1;
-        assertEquals(java.util.Optional.of(expResult), student.getGrade());
+        student.setGrade(1);
+        assertEquals(java.util.Optional.of(1), student.getGrade());
     }
 }

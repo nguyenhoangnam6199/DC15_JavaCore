@@ -2,7 +2,8 @@ package Exercise_3;
 
 import java.util.Comparator;
 
-public class Worker extends Human{
+public class Worker extends Human implements Comparator<Worker>{
+//    public static final Comparator<Worker> SalaryPerDayComparator = new SalaryComparator();
     private double weekSalary;
     private float workHourPerDay;
     public double getWeekSalary() {
@@ -36,5 +37,11 @@ public class Worker extends Human{
         return "Worker [firstName: " + this.getFirstName() + " lastName: " + this.getLastName() + " weekSalary=" + weekSalary + ", workHourPerDay="
                 + workHourPerDay + ", calculateMoneyPerHour()="
                 + calculateMoneyPerHour() + "]";
+    }
+
+
+    @Override
+    public int compare(Worker o1, Worker o2) {
+        return (int) (o2.calculateMoneyPerHour()-o1.calculateMoneyPerHour());
     }
 }

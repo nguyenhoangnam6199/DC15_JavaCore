@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Date;
 
 public class GMSCallHistoryTest {
+
     public static void main(String[] args) {
         Battery battery = new Battery("ABC",45,47,BatteryType.LiIon);
         Display display = new Display(15,1234);
@@ -27,12 +28,7 @@ public class GMSCallHistoryTest {
         System.out.println("The total price of the call history: "+gsm.calculateTotalPrice(pricePerMinute));
 
         //Remove the longest call from the history and calculate the total price again
-        Call longestCall = gsm.callHistory.get(0);
-        for(int i=1; i<gsm.callHistory.size(); i++){
-            if(gsm.callHistory.get(i).getDuration() > longestCall.getDuration()){
-                longestCall = gsm.callHistory.get(i);
-            }
-        }
+        Call longestCall = gsm.findLongestCall(gsm.callHistory);
         gsm.deleteCall(longestCall);
         System.out.println("The total price after delete longest call is: "+gsm.calculateTotalPrice(pricePerMinute));
 

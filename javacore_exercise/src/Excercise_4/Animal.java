@@ -1,5 +1,7 @@
 package Excercise_4;
 
+import java.util.ArrayList;
+
 public class Animal {
     private String name;
     private int age;
@@ -45,5 +47,13 @@ public class Animal {
                 ", age=" + age +
                 ", sex=" + sex +
                 '}';
+    }
+
+    public static double calculateAverageAge(ArrayList<Animal> list){
+        int result = 0;
+        for(Animal animal: list){
+            result+= animal.getAge();
+        }
+        return result/list.size();
     }
 }

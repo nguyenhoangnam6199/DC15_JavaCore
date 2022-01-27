@@ -1,6 +1,7 @@
 package Test1;
 
 import Exercise_1.Battery;
+import Exercise_1.BatteryType;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,9 +9,11 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class BatteryTest {
+    private  Battery battery;
 
     @Before
     public void setUp() throws Exception {
+        battery = new Battery("ABC",45,47, BatteryType.LiIon);
     }
 
     @After
@@ -19,55 +22,41 @@ public class BatteryTest {
 
     @Test
     public void getModel() {
-        Battery battery = new Battery();
-        String expResult = null;
+        String expResult = "ABC";
         String actResult = battery.getModel();
         assertEquals(expResult,actResult);
     }
 
     @Test
     public void setModel() {
-        String model = "abc";
-        Battery battery = new Battery();
-        battery.setModel(model);
-
-        String expResult = "abc";
-        String actResult = battery.getModel();
-        assertEquals(expResult,actResult);
+        battery.setModel("abc");
+        assertEquals("abc",battery.getModel());
     }
 
     @Test
     public void getHoursIdle() {
         int expResult = 0;
-        Battery battery = new Battery();
         int actResult = battery.getHoursIdle();
         assertEquals(expResult,actResult);
     }
 
     @Test
     public void setHoursIdle() {
-        int hoursIdle = 1;
-        Battery battery = new Battery();
-        battery.setHoursIdle(hoursIdle);
-        int expResult = 1;
-        assertEquals(expResult,battery.getHoursIdle());
+        battery.setHoursIdle(1);
+        assertEquals(1,battery.getHoursIdle());
     }
 
     @Test
     public void getHoursTalk() {
         int expResult = 0;
-        Battery battery = new Battery();
         int actResult = battery.getHoursTalk();
         assertEquals(expResult,actResult);
     }
 
     @Test
     public void setHoursTalk() {
-        int hoursTalk = 1;
-        Battery battery = new Battery();
-        battery.setHoursTalk(hoursTalk);
-        int expResult =  1;
-        assertEquals(expResult,battery.getHoursTalk());
+        battery.setHoursTalk(1);
+        assertEquals(1,battery.getHoursTalk());
     }
 
 

@@ -48,24 +48,14 @@ public class Main {
         listHuman.addAll(listStudent);
         listHuman.addAll(listWorker);
 
-        Collections.sort(listStudent, new Comparator<Student>() {
-            @Override
-            public int compare(Student o1, Student o2) {
-                return o1.getGrade()-o2.getGrade();
-            }
-        });
+        Collections.sort(listStudent,new Student());
         System.out.println("list of student order by grade ascending: ");
         for (Student student : listStudent) {
            System.out.println(student);
         }
 
+        Collections.sort(listWorker, new Worker());
         System.out.println("list of worker order by salary descending: ");
-        Collections.sort(listWorker, new Comparator<Worker>() {
-            @Override
-            public int compare(Worker o1, Worker o2) {
-                return (int) (o2.calculateMoneyPerHour()-o1.calculateMoneyPerHour());
-            }
-        });
         for(Worker worker: listWorker){
             System.out.println(worker);
         }

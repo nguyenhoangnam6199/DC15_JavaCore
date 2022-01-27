@@ -11,9 +11,13 @@ import java.time.LocalDate;
 import static org.junit.Assert.*;
 
 public class GSMTest {
+    private GSM gsm;
+    private Call call1;
 
     @Before
     public void setUp() throws Exception {
+        gsm = new GSM();
+        call1 = new Call(LocalDate.now(),"123",10);
     }
 
     @After
@@ -23,39 +27,30 @@ public class GSMTest {
     @Test
     public void getModel() {
         String expResult = "abc";
-        GSM gsm = new GSM();
         assertEquals(expResult,gsm.getModel());
     }
 
     @Test
     public void setModel() {
-        String model = "abc";
-        GSM gsm = new GSM();
-        gsm.setModel(model);
-        String expResult="abs";
-        assertEquals(expResult, gsm.getModel());
+       gsm.setModel("abc");
+       assertEquals("abc", gsm.getModel());
     }
 
     @Test
     public void getPrice() {
         int expResult = 1;
-        GSM gsm = new GSM();
         assertEquals(expResult,gsm.getPrice());
     }
 
     @Test
     public void setPrice() {
-        int price = 1;
-        GSM gsm = new GSM();
-        gsm.setPrice(price);
-        int expResult = 1;
-        assertEquals(expResult,gsm.getPrice());
+        gsm.setPrice(1);
+        assertEquals(1,gsm.getPrice());
     }
 
     @Test
     public void addCall() {
-        GSM gsm = new GSM();
-        Call call1 = new Call(LocalDate.now(),"123",10);
+
         gsm.addCall(call1);
         int expSize = 1;
         int actSize = gsm.getCallHistory().size();
@@ -64,8 +59,6 @@ public class GSMTest {
 
     @Test
     public void deleteCall() {
-        GSM gsm = new GSM();
-        Call call1 = new Call(LocalDate.now(),"123",10);
         gsm.addCall(call1);
         gsm.deleteCall(call1);
         int expSize = 1;
@@ -75,11 +68,9 @@ public class GSMTest {
 
     @Test
     public void calculateTotalPrice() {
-        GSM gsm = new GSM();
         gsm.addCall(new Call(LocalDate.now(),"19001023",3250));
         gsm.addCall(new Call(LocalDate.now(),"18891023",4650));
         gsm.addCall(new Call(LocalDate.now(),"17751533",9650));
-
         double k = 0.37;
         double expResult = 107.67;
         double actResult = gsm.calculateTotalPrice(k);

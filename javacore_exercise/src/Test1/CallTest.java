@@ -8,44 +8,39 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class CallTest {
+    private Call call;
     @Before
     public void setUp() throws Exception {
+        call = new Call();
     }
 
     @After
     public void tearDown() throws Exception {
     }
+
     @Test
-    public void getPhoneNumber() {
+    public void getDialedPhoneNumber() {
         String expResult = null;
-        Call call = new Call();
-        String actResult = call.getPhoneNumber();
+        String actResult = call.getDialedPhoneNumber();
         assertEquals(expResult,actResult);
     }
 
     @Test
-    public void setPhoneNumber() {
-        String phoneNumber = "0010";
-        Call call = new Call();
-        call.setPhoneNumber(phoneNumber);
-        String expResult  = "0012";
-        assertEquals(expResult, call.getPhoneNumber());
+    public void setDialedPhoneNumber() {
+       call.setDialedPhoneNumber("123");
+        assertEquals("123", call.getDialedPhoneNumber());
     }
 
     @Test
     public void getDuration() {
         int expResult =  1;
-        Call call = new Call();
         int actResult = call.getDuration();
         assertEquals(expResult,actResult);
     }
 
     @Test
     public void setDuration() {
-        int duration = 1;
-        Call call = new Call();
-        call.setDuration(duration);
-        int expResult = 1;
-        assertEquals(expResult,call.getDuration());
+        call.setDuration(1);
+        assertEquals(1,call.getDuration());
     }
 }

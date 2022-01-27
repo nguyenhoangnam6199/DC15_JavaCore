@@ -8,9 +8,10 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class WorkerTest {
-
+    private Worker worker;
     @Before
     public void setUp() throws Exception {
+        worker = new Worker();
     }
 
     @After
@@ -20,71 +21,54 @@ public class WorkerTest {
     @Test
     public void getFirstName() {
         String expResult = "abc";
-        Worker worker = new Worker();
         assertEquals(expResult,worker.getFirstName());
     }
 
     @Test
     public void setFirstName() {
-        String name = "abc";
-        Worker worker = new Worker();
-        worker.setFirstName(name);
-        String expResult = "abc";
-        assertEquals(expResult,worker.getFirstName());
+        worker.setFirstName("abc");
+        assertEquals("abc",worker.getFirstName());
     }
 
     @Test
     public void getLastName() {
         String expResult = "abc";
-        Worker worker = new Worker();
         assertEquals(expResult,worker.getLastName());
     }
 
     @Test
     public void setLastName() {
-        String name = "abc";
-        Worker worker = new Worker();
-        worker.setLastName(name);
-        String expResult = "abc";
-        assertEquals(expResult,worker.getLastName());
+        worker.setLastName("abc");
+        assertEquals("abc",worker.getLastName());
     }
 
     @Test
     public void getWeekSalary() {
         double expResult = 1.2;
-        Worker worker = new Worker();
         assertEquals(expResult,worker.getWeekSalary(),0.0);
     }
 
     @Test
     public void setWeekSalary() {
-        double salary = 1.2;
-        Worker worker = new Worker();
-        worker.setWeekSalary(salary);
-        double expResult = 1.2;
-        assertEquals(expResult,worker.getWeekSalary(),0.0);
+        worker.setWeekSalary(5.6);
+        assertEquals(5.6,worker.getWeekSalary(),0.0);
     }
 
     @Test
     public void getWorkHourPerDay() {
         float expResult =  1.8f;
-        Worker worker = new Worker();
         assertEquals(expResult,worker.getWorkHourPerDay(),0.0);
 
     }
 
     @Test
     public void setWorkHourPerDay() {
-        float hour = 1.3f;
-        Worker worker = new Worker();
-        worker.setWorkHourPerDay(hour);
-        float expResult =  1.3f;
-        assertEquals(expResult,worker.getWorkHourPerDay(),0.0);
+       worker.setWorkHourPerDay(1.3f);
+        assertEquals(1.3f,worker.getWorkHourPerDay(),0.0);
     }
 
     @Test
     public void calculateMoneyPerHour() {
-        Worker worker = new Worker("Hoang","Nam",1.8,1.6f);
         double expResult = 0.045;
        assertEquals(expResult, worker.calculateMoneyPerHour(),0.0);
 

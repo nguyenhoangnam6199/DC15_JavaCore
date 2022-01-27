@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Call {
     private LocalDate date;
-    private String phoneNumber;
+    private String dialedPhoneNumber;
     private int duration;
 
     public LocalDate getDate() {
@@ -16,12 +16,12 @@ public class Call {
         this.date = date;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getDialedPhoneNumber() {
+        return dialedPhoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setDialedPhoneNumber(String dialedPhoneNumber) {
+        this.dialedPhoneNumber = dialedPhoneNumber;
     }
 
     public int getDuration() {
@@ -35,9 +35,9 @@ public class Call {
     public Call() {
     }
 
-    public Call(LocalDate date, String phoneNumber, int duration) {
+    public Call(LocalDate date, String dialedPhoneNumber, int duration) {
         this.date = date;
-        this.phoneNumber = phoneNumber;
+        this.dialedPhoneNumber = dialedPhoneNumber;
         this.duration = duration;
     }
 
@@ -45,7 +45,7 @@ public class Call {
     public String toString() {
         return "Call{" +
                 "date=" + date +
-                ", phoneNumber='" + phoneNumber + '\'' +
+                ", dialedPhoneNumber='" + dialedPhoneNumber + '\'' +
                 ", duration=" + duration +
                 '}';
     }

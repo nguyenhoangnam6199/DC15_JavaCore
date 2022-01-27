@@ -9,9 +9,10 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class DogTest {
-
+    private Dog dog;
     @Before
     public void setUp() throws Exception {
+        dog = new Dog();
     }
 
     @After
@@ -21,14 +22,12 @@ public class DogTest {
     @Test
     public void getName() {
         String expResult = "abc";
-        Dog dog = new Dog();
         assertEquals(expResult, dog.getName());
     }
 
     @Test
     public void setName() {
         String name = "abs";
-        Dog dog = new Dog();
         dog.setName(name);
         String expResult = "abs";
         assertEquals(expResult,dog.getName());
@@ -37,14 +36,12 @@ public class DogTest {
     @Test
     public void getAge() {
         int expResult  = 1;
-        Dog dog = new Dog();
         assertEquals(expResult,dog.getAge());
     }
 
     @Test
     public void setAge() {
         int age = 1;
-        Dog dog = new Dog();
         dog.setAge(age);
         int expResult = 1;
         assertEquals(expResult,dog.getAge());
